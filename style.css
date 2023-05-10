@@ -25,6 +25,8 @@ input {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  /* This change is what put the suggestions under the input value not on the side */
+  flex-direction: column;
 }
 .search-container input {
   background: rgb(255, 255, 255)
