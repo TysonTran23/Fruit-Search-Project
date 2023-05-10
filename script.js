@@ -25,7 +25,8 @@ function searchHandler(e) {
 	let input = e.target.value
 
 	//Here I am pasing my input variable to  "function search(str)" to compare the input with the fruits array
-	let checkingSuggestions = search(input)
+	//I am also checking to see if input is EMPTY "", if it is reset the results array to empty, if not then continue on with giving suggestions
+	let checkingSuggestions = input === "" ? [] : search(input)
 
 	//I am calling the showSuggestion function with arguments of 
 	//1. Grabbing the array from the first function to show suggestions
@@ -46,7 +47,11 @@ suggestions.innerHTML = "";
 
 function useSuggestion(e) {
 	//When you click on the suggested fruit, the input value changes to that suggestions
-	input.value = e.target.value;
+	//Changed from e.target.value TO => e.target.innerText
+	input.value = e.target.innerText;
+
+
+
 	//When the suggestion is clicked, clear the suggestion html to have no more suggestions
 	suggestions.innerHTML = "";
 }
